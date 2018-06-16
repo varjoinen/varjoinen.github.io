@@ -21,7 +21,7 @@ the hood:
 
 Lately I have been pondering about publishing new writings and how to do that
 easily. Medium is kind of an easy platform for writing & publishing but I don't
-like their tkae on [GDPR](https://www.eugdpr.org/) "compliance". On the other
+like their take on [GDPR](https://www.eugdpr.org/) "compliance". On the other
 hand I do not like overly complicated blogging or CMS platforms.
 
 After some searching I stumbled upon [Hugo](https://gohugo.io/). Long story
