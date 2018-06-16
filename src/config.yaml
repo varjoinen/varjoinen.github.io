@@ -5,6 +5,8 @@ title: 'Varjoinen'
 theme: 'massively'
 
 params:
+  settings:
+    googleanalytics: 'UA-35434469-3'
   posts:
     foldername: 'posts'
     pagesize: '6'
