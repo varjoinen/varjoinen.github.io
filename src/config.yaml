@@ -1,7 +1,7 @@
 ---
-baseURL: 'http://varjoinen.org/'
+baseURL: 'https://varjoinen.github.io'
 languageCode: 'en-us'
-title: 'Varjoinen.org'
+title: 'Varjoinen'
 theme: 'massively'
 
 params:
