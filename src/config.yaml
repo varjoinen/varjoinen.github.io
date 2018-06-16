@@ -1,0 +1,15 @@
+---
+baseURL: 'http://varjoinen.org/'
+languageCode: 'en-us'
+title: 'Varjoinen.org'
+theme: 'massively'
+
+params:
+  posts:
+    foldername: 'posts'
+    pagesize: '6'
+    featuredpost: 'true'
+
+languages:
+  en:
+    languageName: 'English'
