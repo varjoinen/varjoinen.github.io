@@ -9,7 +9,7 @@ params:
     googleanalytics: 'UA-35434469-3'
   posts:
     foldername: 'posts'
-    pagesize: '6'
+    pagesize: '4'
     featuredpost: 'true'
 
 languages:
