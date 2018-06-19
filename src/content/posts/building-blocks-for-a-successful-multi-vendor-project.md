@@ -9,8 +9,6 @@ Image CC BY-ND 2.0, [wespeck, Flickr](https://www.flickr.com/photos/wespeck/)
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/building-blocks-for-a-successful-multi-vendor-project-2692e18f076c)
 
-# Building blocks for a successful multi vendor project
-
 Think about a team and challenges it might encounter when developing a great
 new product. Then multiply the size of those challenges by ten, add
 bureaucracy, misunderstandings and corporate liabilities to the mix.

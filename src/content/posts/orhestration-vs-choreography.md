@@ -9,8 +9,6 @@ Image CC BY-SA 2.0, [hernanpc](https://www.flickr.com/photos/hernanpc/)
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/orchestration-vs-choreography-9cec9e137910)
 
-# Orchestration vs. choreography
-
 Technology nowadays starts to be mature enough for microservices to be adopted
 by mainstream developers. Containerization, provisioning and build automation
 tools make it easy to create new services quickly. Focal points for these

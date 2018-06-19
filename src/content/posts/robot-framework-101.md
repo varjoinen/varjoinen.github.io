@@ -8,8 +8,6 @@ description: 'A compact introduction to Robot Framework'
 
 This has been earlier published in [Medium](https://medium.com/tieto-developers/robot-framework-101-fb12d1d6954c)
 
-# Robot Framework 101
-
 A while ago I had opportunity to familiarize myself with [Robot Framework](http://robotframework.org/).
 Although it has [extensive user guide](http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html),
 I struggled a little with some of it’s concepts and technical details.
@@ -146,11 +144,14 @@ Documentation
 Resource            ../resources/common.robot
 # Libraries can be imported using Library declaration
 Library             RequestsLibrary
+
 *** Variables ***
 ${some_variable}    foo
+
 *** Test Cases ***
 My First Test
     Announce My Variable    ${some_variable}
+
 *** Keywords ***
 Announce My Variable
     [Arguments]    ${arg1}
@@ -176,6 +177,7 @@ in example) could look something like this:
 *** Settings ***
 Documentation
 ...    Common resources
+
 *** Keywords ***
 Announce My Variable
     [Arguments]    ${arg1}
@@ -196,9 +198,11 @@ Suite Teardown    Close Application
 Test Setup        Open Login Prompt
 Test Template     Login With Invalid Credentials
 Library           SomeApplicationLibrary
+
 *** Variables ***
 ${valid_user}        bob
 ${valid_password}    DylAn
+
 *** Test Cases ***               User Name        Password
 Invalid User                     NONVALID         ${VALID PASSWORD}
 Invalid Password                 ${valid_user}    NONVALID
@@ -206,6 +210,7 @@ Invalid User And Password        NONVALID         STILLNOTVALID
 Empty Username                   ${EMPTY}         ${valid_password}
 Empty Password                   ${valid_user}    ${EMPTY}
 Empty Username And Password      ${EMPTY}         ${EMPTY}
+
 *** Keywords ***
 Login With Invalid Credentials
     [Arguments]    ${user}    ${password}

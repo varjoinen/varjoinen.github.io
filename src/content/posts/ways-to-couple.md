@@ -10,8 +10,6 @@ Image CC-BY-NC, [Brett Sayer](https://www.flickr.com/photos/brett-sayer/40116524
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/ways-to-couple-30c37a29c9c8))
 
-# Ways to couple
-
 In systems interaction coupling means degree of interdependence. The
 relationship between two separate system, service or component.
 

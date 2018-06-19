@@ -6,8 +6,6 @@ date: '2018-06-16T00:00:00'
 description: 'It is time to refresh'
 ---
 
-# Time to refresh
-
 I have updated the site, once again. There has been some bigger changes under
 the hood:
 

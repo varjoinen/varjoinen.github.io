@@ -7,8 +7,6 @@ description: 'Core parts explained'
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/anatomy-of-microservices-129eb543c3e0)
 
-# Anatomy of Microservices
-
 Structuring complex systems is an interesting challenge that we often face.
 That, combined with the need for fast time to market leads us searching for
 ways to decompose large projects to more manageable pieces providing value as

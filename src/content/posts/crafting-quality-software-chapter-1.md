@@ -10,8 +10,6 @@ Image CC BY-SA 2.0, [Guy Sie](https://www.flickr.com/photos/guysie/6095265888/)
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/crafting-quality-software-chapter-1-712dd44302d4)
 
-# Crafting Quality Software, Chapter 1
-
 Everyone agrees that it is easy to write clean and functional code that
 actually works as intended and integrates well to the system it is part of. Of
 course development processes are also automated from commit to production

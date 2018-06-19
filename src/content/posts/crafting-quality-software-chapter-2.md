@@ -10,8 +10,6 @@ Image CC BY 2.0, [Elizabeth Hahn](https://www.flickr.com/photos/128185330@N03/)
 
 This has been earlier published in [Medium](https://medium.com/@varjoinen/crafting-quality-software-chapter-2-37d74a3d7d64)
 
-# Crafting Quality Software, Chapter 2
-
 I started a series of writings describing some important aspects of creating
 quality software. In the [first part](/posts/crafting-quality-software-chapter-1/)
 I focused on one of the most important piece: people. In this second part I’ll
