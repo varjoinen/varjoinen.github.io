@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Crafting quality software, chapter 2 &middot; Varjoinen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href='/assets/css/main.css' />
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-loading">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Varjoinen</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Varjoinen</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/varjoinen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        
+        <li><a href="https://instagram.com/varjoinen_" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/varjoinen" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/varjoinen" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">February 2, 2017</span>
+                                
+                                <h1>Crafting quality software, chapter 2</h1>
+                                <p>Making sure it works before its too late</p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/quality_puzzle.jpg" alt="" /></div>
+                            
+                            
+
+<p>Image CC BY 2.0, <a href="https://www.flickr.com/photos/128185330@N03/">Elizabeth Hahn</a></p>
+
+<p>This has been earlier published in <a href="https://medium.com/@varjoinen/crafting-quality-software-chapter-2-37d74a3d7d64">Medium</a></p>
+
+<p>I started a series of writings describing some important aspects of creating
+quality software. In the <a href="/posts/crafting-quality-software-chapter-1/">first part</a>
+I focused on one of the most important piece: people. In this second part I’ll
+circle a bit around the actual software development process and talk about
+testing.</p>
+
+<hr />
+
+<p>So why testing is a topic of importance? Wouldn’t it be easier just to write
+code and run it as good programmers don’t make mistakes nor create buggy code?
+We do it in agile way and deploy anyway multiple times a day to production. If
+there are issues, we’ll fix them fast. And by the way, we don’t need
+documentation.</p>
+
+<p>One could think like that until a complex time consuming issue halts critical
+production process for hours and coders stay up whole night hunting the root
+cause. Afterwards proof that software works and does what it is supposed to do
+starts to sound a good idea.</p>
+
+<p><img src="/images/spheres_of_dev_anxiety.png" alt="alt text" title="Spheres of developer anxiety" /></p>
+
+<p>Spheres of coder anxiety</p>
+
+<p>Based on my experience I would divide testing to six categories pictured above.
+If you have ever let a bug slip through your quality assurance process, you may
+know why I have colour coded the spheres like that.</p>
+
+<p>I’d argue that the sooner issues are detected the cheaper they are to fix. A
+bug working its way to the utmost sphere has a potential effect to business as
+it will only be noticed in production environment or worse, it won’t be noticed
+and it silently causes damage.</p>
+
+<p>There are multiple barriers for ensuring that applications work as expected and
+I’ll next describe few of them.</p>
+
+<h2 id="quality-code">Quality code</h2>
+
+<p>First step in testing is developers themselves. Application logic should be
+designed and design critically reviewed. After that implementation should be
+done and reviewed by someone else if possible.</p>
+
+<p>This way ideas and designs get challenged and developers have to rationalise
+their decisions before actual code is written and after implementing a
+solution. Sharing thoughts also helps to pass on knowledge from peer to peer.</p>
+
+<h2 id="unit-tests">Unit tests</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Unit_testing">Unit testing</a> ensures that
+separate units of code are tested and refactoring and adding new functionality
+can be done with confidence as tests verify that nothing breaks.</p>
+
+<p>Of course it is important to write tests that matter. This is usually balancing
+between confidence, project resources and application criticality. Some demo
+application maybe doesn’t need rigorous testing but with core banking software
+there needs to be confidence that it really works as expected.</p>
+
+<p>Some code analysis tools like <a href="https://www.sonarqube.org/">SonarQube</a> may
+complain about not writing unit tests for <a href="https://en.wikipedia.org/wiki/Plain_Old_Java_Object">POJOs’</a>
+getters and setters but more experienced developers will be confident enough to
+not to do that.</p>
+
+<p>Good unit tests tell early if something breaks because they are usually run
+before even committing changes to version control (or at least should be run).
+This way it is harder to let broken code spread across a project.</p>
+
+<h2 id="integration-tests">Integration tests</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Integration_testing">Integration testing</a> or as
+I also like to call it, black-box testing, assures that applications or their
+components work through their defined interfaces and with systems they are
+dependent on. For example <a href="https://aws.amazon.com/">AWS</a> related applications
+would test that their integration with various AWS managed services work as
+expected. Database facing applications would check that all interactions with
+database work and have anticipated results.</p>
+
+<p>Inter-process testing helps noticing possible issues with application and its
+dependent systems. This is especially handy when there starts to be multiple
+versions of components or there is upgrades to external components like
+databases or third party APIs.</p>
+
+<h2 id="acceptance-tests">Acceptance tests</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Acceptance_testing">Acceptance</a> testing helps to
+ensure that functional and non-functional requirements defined for an
+application and/or set of applications are met. Criteria for acceptance should
+give confidence that applications deliver their intended functionality with
+defined constraints and performance.</p>
+
+<p>Systematic acceptance tests can provide a consistent and scalable framework for
+assuring operability of systems through whole business processes that create
+the actual value for organisations.</p>
+
+<p>There are frameworks like <a href="http://robotframework.org/">Robot Framework</a> for
+implementing and automating acceptance tests.</p>
+
+<h2 id="exploratory-tests">Exploratory tests</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Exploratory_testing">Exploratory testing</a> is not
+always part of a quality assurance process but can yield valuable input for
+development team. It can be a phase in the process or culture that is followed
+through a project. Committed developers and testers or clients can personally
+try out software and give input to the team.</p>
+
+<p>Back-end applications do not usually have exploratory testing planned but at
+least in the security point of view trying to penetrate or break systems
+continuously during development cycles can lead more secure software.</p>
+
+<p>A dedicated tester can also bring fresh ideas to a project and in a project
+containing front-end component spare a team from issues that first end-users
+tend encounter if no one has tested the product outside of the development
+process.</p>
+
+<h2 id="monitoring">Monitoring</h2>
+
+<p>I wanted to include this to the context as ways of working are shifting more
+towards <a href="https://en.wikipedia.org/wiki/DevOps">DevOps</a> culture. After going
+live systems are monitored and “tested” in production use. Feedback is gathered
+and fine-tuning is done, lessons are learned and applications are made better.</p>
+
+<p>Automation and visualisation are key terms with monitoring. Data gathering from
+various servers should be automated and information processed via well defined
+workflows that also visualise the data for those who operate the systems. This
+way there is a constant feedback loop and some issues can be prevented
+proactively.</p>
+
+<hr />
+
+<p>Testing is an important part in crafting quality software. Wise developers
+write enough tests to be confident that nothing important breaks if code is
+refactored or new functionality is added. Testing should also be automated as
+much as possible to make it easy and seamless part of the software development
+process.</p>
+
+
+                            
+
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/varjoinen" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                
+                <li><a href="https://instagram.com/varjoinen_" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/varjoinen" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/varjoinen" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Varjoinen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+			</div>
+            
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113904582-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', "UA-35434469-3");
+</script>
+
+
+
+	</body>
+</html>

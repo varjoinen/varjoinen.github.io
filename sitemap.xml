@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/why-not-to-deliver-today/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/software-at-scale/</loc>
+    <lastmod>2018-06-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/updating-the-site/</loc>
+    <lastmod>2018-06-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/anatomy-of-microservices/</loc>
+    <lastmod>2017-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/crafting-quality-software-chapter-2/</loc>
+    <lastmod>2017-02-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/crafting-quality-software-chapter-1/</loc>
+    <lastmod>2017-01-29T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/robot-framework-101/</loc>
+    <lastmod>2016-12-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/ways-to-couple/</loc>
+    <lastmod>2016-02-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/orchestration-vs-choreography/</loc>
+    <lastmod>2015-10-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/building-blocks/</loc>
+    <lastmod>2015-09-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/posts/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://varjoinen.github.io/</loc>
+    <lastmod>2019-11-10T00:00:00+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

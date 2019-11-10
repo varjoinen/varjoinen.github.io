@@ -1,0 +1,227 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Anatomy of microservices &middot; Varjoinen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href='/assets/css/main.css' />
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-loading">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Varjoinen</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Varjoinen</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/varjoinen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        
+        <li><a href="https://instagram.com/varjoinen_" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/varjoinen" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/varjoinen" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">May 9, 2017</span>
+                                
+                                <h1>Anatomy of microservices</h1>
+                                <p>Core parts explained</p>
+                            </header>
+                            
+                            
+
+<p>This has been earlier published in <a href="https://medium.com/@varjoinen/anatomy-of-microservices-129eb543c3e0">Medium</a></p>
+
+<p>Structuring complex systems is an interesting challenge that we often face.
+That, combined with the need for fast time to market leads us searching for
+ways to decompose large projects to more manageable pieces providing value as
+soon as possible. There are multiple ways to approach this but one of the
+trendiest is microservices architecture. <a href="https://en.wikipedia.org/wiki/Microservices">Microservices</a>
+themselves are small, independent and composable services that have defined set
+of responsibilities. They provide a way to decompose large systems to smaller
+manageable pieces that are easier to understand, develop and especially
+maintain. However they are not a silver bullet as with multiple services comes
+all the challenges of distributed systems. More detailed information about
+good and bad sides of microservices can be found from Martin Fowler’s
+<a href="https://martinfowler.com/articles/microservices.html">great article</a>. Also
+some ideas on integration in complex microservices environments can be read
+from <a href="/posts/orchestration-vs-choreography/">my older blog post</a>.</p>
+
+<p>In this blog I’ll describe the essential parts of a microservice.</p>
+
+<h2 id="building-blocks-of-microservice">Building Blocks of Microservice</h2>
+
+<p><img src="/images/building_blocks_microservices.png" alt="alt text" title="Building blocks of microservices" /></p>
+
+<p>Essence of a microservice reduced to bare minimum</p>
+
+<p>I like to decompose microservices to three separate pieces: interface, logic
+and data. Breaking things down this way allows us to separate concerns related
+to different parts and make it easier to focus specific challenges on design,
+implementation and maintenance.</p>
+
+<p>I’ll next describe these three pieces.</p>
+
+<h3 id="interface">Interface</h3>
+
+<p>Interface is an important and unfortunately many times neglected part of a
+service. It describes the interactions a microservice enables with surrounding
+systems.</p>
+
+<p>With RESTful programming being popular nowadays, <a href="https://en.wikipedia.org/wiki/Representational_state_transfer">REST</a>
+API is a good example of an interface that a microservice can have. RESTful
+interface exposes access to resources (data) which the microservice manages. We
+could eg. have a pricing microservice that has an API providing pricing
+information and ways to manage that information.</p>
+
+<p>On the other hand there could be an asynchronous batch interface implemented
+with a message format and queues.</p>
+
+<p>Challenges of interfaces are usually related to interface design: making
+interface intuitive and usable for target audience can be hard.</p>
+
+<h3 id="logic">Logic</h3>
+
+<p>Application logic implements given set of functionality, usually related to
+some business process or supporting function. Most of software architecture
+related decisions are tied to logic of a microservice, for example is control
+flow synchronous/asynchronous, what programming language is used or how an
+application is composed.</p>
+
+<p>Logic is also the section that intersect the most with business requirements.
+Requirements are build into application logic to implement given business
+processes and provide value.</p>
+
+<p>Challenges of application logic are usually developer centric: making simple
+and performant solutions for complex problems, producing understandable and
+brilliant code and making sure with proper automatic tests that logic works as
+intended.</p>
+
+<h3 id="data">Data</h3>
+
+<p>Data is the new oil of digital world and core part of microservices and it can
+be itself a valuable asset. Services provide access and functionality related
+to specific dataset, eg. product data. Usually data is stored into a relational
+or non relational database for persistence.</p>
+
+<p>Data related challenges in microservices consist of modelling data and
+maintaining the state of dataset. In complex systems it might be hard to create
+a data model that conforms to all given requirements from different data
+consuming parties. However there are several frameworks that help with data
+modelling, eg. <a href="https://martinfowler.com/bliki/BoundedContext.html">Domain driven design</a>.</p>
+
+<p>Maintaining the state of dataset is a whole issue itself. Data tends to become
+inconsistent and invalid if active measures are not taken to keep it consistent
+and valid. Without proper application design it is easy to let data drift to an
+invalid state.</p>
+
+
+                            
+
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/varjoinen" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                
+                <li><a href="https://instagram.com/varjoinen_" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/varjoinen" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/varjoinen" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Varjoinen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+			</div>
+            
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113904582-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', "UA-35434469-3");
+</script>
+
+
+
+	</body>
+</html>

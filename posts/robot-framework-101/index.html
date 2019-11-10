@@ -1,0 +1,396 @@
+<!DOCTYPE HTML>
+
+<html lang='en'>
+	<head>
+		<title>Robot Framework 101 &middot; Varjoinen</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href='/assets/css/main.css' />
+		
+		<noscript><link rel="stylesheet" href='/assets/css/noscript.css' /></noscript>
+	</head>
+
+	<body lang='en' class="is-loading">
+
+		
+			<div id="wrapper">
+
+                
+<header id="header">
+    <a href='/' class="logo">Varjoinen</a>
+</header>
+
+                
+
+<nav id="nav">
+    <ul class="links">
+        <li class="active"><a href='/'>Varjoinen</a></li>
+        
+        
+    </ul>
+    
+    <ul class="icons">
+        
+        <li><a href="https://twitter.com/varjoinen" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+        
+        
+        
+        <li><a href="https://instagram.com/varjoinen_" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+        
+        
+        <li><a href="https://www.linkedin.com/in/varjoinen" class="icon fa-linkedin"><span class="label">LinkedIn</span></a></li>
+        
+        
+        <li><a href="https://github.com/varjoinen" class="icon fa-github"><span class="label">GitHub</span></a></li>
+        
+        
+        
+        
+        
+    </ul>
+    
+</nav>
+
+
+				
+					<div id="main">
+
+						
+                        <section class="post">
+                            <header class="major">
+                                
+                                <span class="date">December 16, 2016</span>
+                                
+                                <h1>Robot Framework 101</h1>
+                                <p>A compact introduction to Robot Framework</p>
+                            </header>
+                            
+                            <div class="image main"><img src="/images/test.jpg" alt="" /></div>
+                            
+                            
+
+<p>This has been earlier published in <a href="https://medium.com/tieto-developers/robot-framework-101-fb12d1d6954c">Medium</a></p>
+
+<p>A while ago I had opportunity to familiarize myself with <a href="http://robotframework.org/">Robot Framework</a>.
+Although it has <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html">extensive user guide</a>,
+I struggled a little with some of it’s concepts and technical details.</p>
+
+<p>So I thought to write down a “short” introduction that contains basic
+information about the framework structured to a compact and hopefully easy to
+understand form.</p>
+
+<hr />
+
+<h2 id="introduction">Introduction</h2>
+
+<p>So, Robot Framework describes itself as a generic test automation framework
+especially for acceptance testing. In my opinion it works well in many kinds of
+testing cases.</p>
+
+<p>The framework supports multiple testing paradigms and patters and it is easy to
+get overwhelmed. There are <a href="https://github.com/robotframework/HowToWriteGoodTestCases/blob/master/HowToWriteGoodTestCases.rst">best practices</a>
+that should be to make test files readable and easy to understand.</p>
+
+<p>Next I’ll describe how to install Robot Framework, how to setup and write tests
+and compare different approaches.</p>
+
+<h2 id="installation">Installation</h2>
+
+<p><img src="/images/python_logo.png" alt="alt text" title="Python logo" /></p>
+
+<p>I’ll cover here the most common way to run the framework: Python. One can also
+use the framework with Java (Jython) or .Net (IronPython).
+<a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#installation-instructions">Instructions for them</a>
+can be found from user guide.</p>
+
+<p>So we need Python to run our tests. Robot Framework 3.0 onwards supports both
+Python 2 and 3 but library support for Python 3 might not be as good as for
+Python 2. Python probably is already installed to your system if you are using
+Linux or Mac but you should update it to latest version by using your favourite
+package manager or grabbing a release from Python <a href="https://www.python.org/">homepage</a>.</p>
+
+<p>After installing/updating Python to latest release, you’ll have Python package
+manager pip installed with it. You’ll want to use pip for managing Robot
+Framework and it’s libraries just because it is easy.</p>
+
+<p><strong>To install Robot Framework run command:</strong></p>
+
+<pre><code class="language-bash">pip install robotframework
+</code></pre>
+
+<p>You also might want to install some common libraries for the framework:</p>
+
+<pre><code class="language-bash">pip install robotframework-databaselibrary
+pip install requests
+pip install robotframework-requests
+</code></pre>
+
+<p>These give you ability to test databases and for example REST APIs.</p>
+
+<h2 id="setting-up-a-test-project">Setting up a test project</h2>
+
+<p>Robot Framework does not force you to use any kind of structure for your test
+project. Simplest implementation of a test case is one plain text file
+containing all needed test declarations.</p>
+
+<p>For anything more complex you want to divide test cases to meaningful units,
+functionality used by multiple different tests to common includable resources
+etc.</p>
+
+<p>Robot Framework itself defines composable building blocks:
+<strong>Individual testcases</strong>, <strong>test suites</strong>, <strong>resources</strong> and <strong>libraries</strong>. A
+test case can be described as one testable unit, eg. testing that login to a
+website works with valid credentials. These test cases can be spread to
+multiple files that form a <strong>test suite</strong>. It is also possible to have
+hierarchy of suites. <strong>Resources</strong> are collections of functionality used by
+multiple test case files and <strong>libraries</strong> are packaged modules that contain a
+set of specific functionalities, eg. <a href="https://github.com/franz-see/Robotframework-Database-Library">Database library</a>.</p>
+
+<p>For a fairly simple use case of end-to-end testing a service composed of
+multiple microservices and applications I used following directory layout:</p>
+
+<p><img src="/images/robot_folder_structure.png" alt="alt text" title="Folder structure" /></p>
+
+<p><strong>Resources</strong> folder contains common resources, <strong>scripts</strong> some custom python
+libraries I wrote for testing and <strong>test_cases</strong> folder contains the actual
+test case files and test suite initialisation functionality.</p>
+
+<hr />
+
+<h2 id="test-file-formats">Test file formats</h2>
+
+<p>Robot framework supports <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#supported-file-formats">multiple file formats</a>
+from HTML to plain text. I found plain text to be simplest to work with. It is
+easy to read and write and I’d recommend it.</p>
+
+<h2 id="testing-paradigms">Testing paradigms</h2>
+
+<p>There is also possibility to write tests with <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#different-test-case-styles">different styles</a>.
+Main styles are keyword-driven, data-driven and behaviour-driven.</p>
+
+<h3 id="keyword-driven">Keyword-driven</h3>
+
+<p>Keyword-driven testing is good for testing different workflows that have
+multiple steps that follow each other.</p>
+
+<h3 id="data-driven">Data-driven</h3>
+
+<p>Data-driven tests suit well for testing a scenario with different inputs.</p>
+
+<h3 id="behaviour-driven">Behaviour-driven</h3>
+
+<p>Behaviour-driven tests (<a href="https://github.com/cucumber/cucumber/wiki/Gherkin">Gherkin style</a>)
+structure test cases with Given/When/Then form that might be easier to
+understand by non-technical persons.</p>
+
+<hr />
+
+<p>I find behaviour-driven style too restrictive so I use keyword-driven or
+data-driven styles depending on test cases.</p>
+
+<h2 id="writing-tests">Writing tests</h2>
+
+<p>So here is the beef. Writing the actual test cases. I’ll show you how to write
+tests with keyword-driven and data-driven styles using plain text format.</p>
+
+<h3 id="basic-syntax">Basic syntax</h3>
+
+<p>Plain text format with keyword-driven style is pretty straightforward:</p>
+
+<pre><code>*** Settings ***
+Documentation
+...    This is an example file
+# This is a comment
+# Resources can be imported with Resource declaration
+Resource            ../resources/common.robot
+# Libraries can be imported using Library declaration
+Library             RequestsLibrary
+
+*** Variables ***
+${some_variable}    foo
+
+*** Test Cases ***
+My First Test
+    Announce My Variable    ${some_variable}
+
+*** Keywords ***
+Announce My Variable
+    [Arguments]    ${arg1}
+    Log    ${arg1}
+</code></pre>
+
+<p>Different sections are marked with three stars (eg. *** Settings ***). What’s
+important is to have more than one space between meaningful words. Multiple
+spaces are used to separate Robot Framework keywords, variables and
+declarations from each other.</p>
+
+<p>Settings section is used to define needed resources and libraries for test
+cases. Variables section can be used to define and collect used variables in
+one place. Variables can also be defined directly in test cases but Variables
+section should be used for common variables. Test cases section contains the
+actual tests and Keywords section test case file related keywords.</p>
+
+<p>Usually it is a good practice to keep test case files compact and define custom
+keywords in separate resource files. A resource file (../resources/common.robot
+in example) could look something like this:</p>
+
+<pre><code>*** Settings ***
+Documentation
+...    Common resources
+
+*** Keywords ***
+Announce My Variable
+    [Arguments]    ${arg1}
+    Log    ${arg1}
+</code></pre>
+
+<p>With this we could remove Keywords section from test case file.</p>
+
+<h3 id="data-driven-tests">Data-driven tests</h3>
+
+<p>Data-driven tests repeat same operation with varying input. This can be
+achieved with Robot Framework using notation (this closely follows <a href="http://robotframework.org/#examples">examples provided by Robot Framework</a>):</p>
+
+<pre><code>*** Settings ***
+Suite Setup       Open Application
+Suite Teardown    Close Application
+Test Setup        Open Login Prompt
+Test Template     Login With Invalid Credentials
+Library           SomeApplicationLibrary
+
+*** Variables ***
+${valid_user}        bob
+${valid_password}    DylAn
+
+*** Test Cases ***               User Name        Password
+Invalid User                     NONVALID         ${VALID PASSWORD}
+Invalid Password                 ${valid_user}    NONVALID
+Invalid User And Password        NONVALID         STILLNOTVALID
+Empty Username                   ${EMPTY}         ${valid_password}
+Empty Password                   ${valid_user}    ${EMPTY}
+Empty Username And Password      ${EMPTY}         ${EMPTY}
+
+*** Keywords ***
+Login With Invalid Credentials
+    [Arguments]    ${user}    ${password}
+    Input Username    ${username}
+    Enter
+    Input Password    ${password}
+    Enter
+    Login Should Have Failed
+</code></pre>
+
+<p>Here we initialise test suite with opening an application and also we have
+defined that after test cases we will close the application. For this imaginary
+example we have a custom application library that defines these convenient
+keywords for us. Before every test case we have defined that we open login
+prompt. There can be setup for suites and test cases, more information can be
+found from <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#test-setup-and-teardown">user guide</a>.</p>
+
+<p>Operation we loop with inputs is defined with Test Template keyword in Settings
+section. Inputs are defined in columnar format under Test Cases section.</p>
+
+<h2 id="running-tests">Running tests</h2>
+
+<p>As of <a href="https://github.com/robotframework/robotframework/blob/master/doc/releasenotes/rf-3.0.rst">3.0 release</a>,
+test can be run using “robot” command that is installed with Robot Framework:</p>
+
+<pre><code class="language-bash">robot some_tests.robot
+OR
+robot test_cases/
+</code></pre>
+
+<p>Earlier versions contained runtime dependent scripts like pybot, jybot and
+ipybot to run tests.</p>
+
+<p>If running tests from a folder (latter example), an init file can defined
+inside the folder to setup suite. File should be named as __init__.robot and it
+can contain subset of the functionality that can be used for test cases. More
+information about init files can be found from <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#initialization-files">user guide</a>.</p>
+
+<p>Running tests will output outcome of every test to console and also form HTML
+report and log files that contain results and detailed information about test
+execution. Also an XML file containing results in more machine readable form is
+created.</p>
+
+<p>For post-processing outputs <a href="http://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#rebot">rebot</a>
+can be used, though I haven’t needed it myself.</p>
+
+<hr />
+
+<p>I hope this writing helps those interested in Robot Framework to get started
+with it.</p>
+
+
+                            
+
+                            
+                        </section>
+
+					</div>
+
+                    
+
+<footer id="footer">
+    
+    <section class="split contact">
+        
+        
+        
+        
+        <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+                
+                <li><a href="https://twitter.com/varjoinen" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+                
+                
+                
+                <li><a href="https://instagram.com/varjoinen_" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+                
+                
+                <li><a href="https://www.linkedin.com/in/varjoinen" class="icon alt fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                
+                
+                <li><a href="https://github.com/varjoinen" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+                
+                
+                
+                
+                
+            </ul>
+        </section>
+        
+    </section>
+</footer>
+
+                    
+<div id="copyright">
+    <ul><li>&copy; Varjoinen</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li><li>Hugo Port: <a href="https://curtistimson.co.uk">curttimson</a></li></ul>
+</div>
+
+
+			</div>
+            
+<script src='/assets/js/jquery.min.js'></script>
+<script src='/assets/js/jquery.scrollex.min.js'></script>
+<script src='/assets/js/jquery.scrolly.min.js'></script>
+<script src='/assets/js/skel.min.js'></script>
+<script src='/assets/js/util.js'></script>
+<script src='/assets/js/main.js'></script>
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-113904582-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', "UA-35434469-3");
+</script>
+
+
+
+	</body>
+</html>
